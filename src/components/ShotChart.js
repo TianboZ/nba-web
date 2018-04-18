@@ -10,6 +10,7 @@ window.d3_hexbin = {hexbin : hexbin}; // workaround library problem
 export class ShotChart extends React.Component {
     static propTypes = {
         playerId: PropTypes.number,
+        minCount: PropTypes.number.isRequired
     }
 
     componentDidUpdate() {
@@ -25,8 +26,12 @@ export class ShotChart extends React.Component {
             }));
 
             const courtSelection = d3.select("#shot-chart");
+
+            courtSelection.html(''); // clean up old chart; !!! 如果没有，ShotChart不变！！！
+
             const chart_court = court().width(500);
-            const chart_shots = shots().shotRenderThreshold(2).displayToolTips(true).displayType("hexbin");
+            console.log('ShotChart: minCount=' + this.props.minCount); // 滑动slider, 也跟着变，就对了！
+            const chart_shots = shots().shotRenderThreshold(this.props.minCount).displayToolTips(true).displayType("hexbin"); // change input here
             courtSelection.call(chart_court);
             courtSelection.datum(final_shots).call(chart_shots);
         });
@@ -37,3 +42,6 @@ export class ShotChart extends React.Component {
         );
     }
 }
+
+
+

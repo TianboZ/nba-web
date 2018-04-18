@@ -4,13 +4,19 @@ import { Slider, InputNumber, Row, Col } from 'antd';
 
 // ant design 照抄
 export class CountSlider extends React.Component {
+    // initial state
     state = {
         inputValue: 1,
     }
+    // state 一变，re-render
     onChange = (value) => {
+        console.log(value);
         this.setState({
             inputValue: value,
         });
+
+        // 核心的一步！把value这个input返回给了parent component！从而引发parent component state 变化
+        this.props.onCountSliderChange(value);
     }
     render() {
         return (

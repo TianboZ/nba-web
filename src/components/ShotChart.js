@@ -10,7 +10,8 @@ window.d3_hexbin = {hexbin : hexbin}; // workaround library problem
 export class ShotChart extends React.Component {
     static propTypes = {
         playerId: PropTypes.number,
-        minCount: PropTypes.number.isRequired
+        minCount: PropTypes.number.isRequired,
+        chartType: PropTypes.string,
     }
 
     componentDidUpdate() {
@@ -31,7 +32,7 @@ export class ShotChart extends React.Component {
 
             const chart_court = court().width(500);
             console.log('ShotChart: minCount=' + this.props.minCount); // 滑动slider, 也跟着变，就对了！
-            const chart_shots = shots().shotRenderThreshold(this.props.minCount).displayToolTips(true).displayType("hexbin"); // change input here
+            const chart_shots = shots().shotRenderThreshold(this.props.minCount).displayToolTips(true).displayType(this.props.chartType); // change input here
             courtSelection.call(chart_court);
             courtSelection.datum(final_shots).call(chart_shots);
         });

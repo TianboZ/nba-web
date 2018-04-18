@@ -6,7 +6,7 @@ import { Slider, InputNumber, Row, Col } from 'antd';
 export class CountSlider extends React.Component {
     // initial state
     state = {
-        inputValue: 1,
+        inputValue: 2,
     }
     // state 一变，re-render
     onChange = (value) => {

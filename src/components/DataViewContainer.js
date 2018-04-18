@@ -41,7 +41,7 @@ export class DataViewContainer extends React.Component {
                     {this.state.chartType === 'hexbin' ? <CountSlider onCountSliderChange={this.onCountSliderChange}/> : null}
 
                     <Row>
-                        <Col span={12} offset={3}>
+                        <Col span={12} offset={2}>
                             <RadioGroup onChange={this.onChartTypeChange} value={this.state.chartType}>
                                 <Radio value='hexbin'>Hexbin</Radio>
                                 <Radio value='scatter'>Scatter</Radio>

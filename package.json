@@ -2,17 +2,36 @@
   "name": "nba-web",
   "version": "0.1.0",
   "private": true,
+
+
+
+  "homepage": ".",
+
   "dependencies": {
+    "antd": "^3.7.3",
     "d3-shotchart": "0.0.2",
+    "get-json": "^1.0.0",
     "nba": "^4.2.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "2.0.0-next.3e165448"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">0.25%",
+      "not op_mini all",
+      "ie 11"
+    ]
   }
 }
